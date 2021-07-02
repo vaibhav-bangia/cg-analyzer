@@ -139,6 +139,28 @@ map<string, vector<float>> datafilehandling(string file_name)
     fin.close();
     return m;
 }
-void Hello(){
-    cout << " HELLO! ";
+void  betterStatsFunction(map<string, vector<float>> m1){
+    vector< pair<string, map<int,int> > > betterStatsVector ; 
+    for(auto&i:m1){
+        map<int,int> m_xx = betterStats(m1[i.first]);
+        betterStatsVector.push_back({i.first,m_xx});
+    }
+    for(auto&i:betterStatsVector){
+        cout << "ANALYSIS OF " << i.first << " branch : " << endl ;
+        int no_of_student_in_this_branch = 0;  
+        for(auto j:i.second){
+            no_of_student_in_this_branch+=j.second;
+            //float perc = j.second/no_of_student_in_this_branch * 100  ;
+            
+        }  
+        cout << endl  << no_of_student_in_this_branch << " studssss " << endl ;
+        for(auto j:i.second){
+            float x = j.second *0.1 * 10 ;
+            float y = no_of_student_in_this_branch *0.1 * 10 ;
+            float perc = x/y ;
+            cout << j.first << " : " << j.second << "/" << no_of_student_in_this_branch  << "       " << perc  * 100  << endl  ; 
+            
+        }
+        cout << endl << endl ; 
+    }    
 }
