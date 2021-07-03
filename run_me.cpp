@@ -18,7 +18,7 @@ int main()
     float s5 = 0;  
     // cout << "Enter Your 3,4,5 sem cg : " ;
     // cin >> s3 >> s4 >> s5 ; 
-    map<string, vector<float>> m1 = datafilehandling("./TXT/2K19_4sem.txt");
+    map<string, vector<float>> m1 = datafilehandling("./TXT/2K18_6sem.txt");
     // map<string, vector<float>> m2 = datafilehandling("2K18_4sem.txt");
     // map<string, vector<float>> m3 = datafilehandling("2K18_5sem.txt");
 
