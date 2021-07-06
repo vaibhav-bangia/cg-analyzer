@@ -4,6 +4,7 @@
 #include <vector>
 #include <map>
 #include <numeric>
+#include <math.h>
 using namespace std;
 std::vector<float> cg;
 vector<string> pattern_arr = {"AE", "BT", "CE", "CO", "EC", "EE", "EL", "EN", "EP", "IT", "MC", "ME", "PE", "PS", "SE"};
@@ -13,6 +14,15 @@ map<int,int> betterStats(vector<float> cg){
         freq[int(num)]++;
     }
     return freq;
+}
+vector<int> betterStatsPython(vector<float>cg){
+    // returns a vector (frequency vector)
+    // taks a vector (cg vecotr of a branch)
+    vector<int> result(11); // 0 to 10 cg 
+    for(auto &num:cg){
+        result[int(num)]++;
+    }
+    return result;
 }
 void cgCalculator(map<string, vector<float>> m)
 {
@@ -161,6 +171,51 @@ void  betterStatsFunction(map<string, vector<float>> m1){
             cout << j.first << " : " << j.second << "/" << no_of_student_in_this_branch  << "       " << perc  * 100  << endl  ; 
             
         }
+        cout << endl << endl ; 
+    }    
+}
+
+void  betterStatsPythonFunction(map<string, vector<float>> m1,string add_me_string){
+    
+    // will store the frequcey vector of all branches
+    vector< pair<string, vector<int> > > betterStatsVector ; 
+    
+    for(auto&i:m1){
+        // we send a vector and recieve a vector
+        vector<int> m_xx = betterStatsPython(m1[i.first]);
+        betterStatsVector.push_back({i.first,m_xx});
+    }
+    for(auto&i:betterStatsVector){
+        float no_of_student_in_this_branch = 0.0;  
+        vector<int> freq = i.second;
+        // traversing over frequcney vector of this bracnh
+        for(auto num:freq){
+            no_of_student_in_this_branch+=num;
+        }
+        vector<float> perc_vector(11,0);
+        for(int it=0;it<=10;it++){
+            perc_vector[it]=(freq[it]/no_of_student_in_this_branch *0.1*10*100);
+            // rounding to 2 decimal places
+            // float n = perc_vector[it];
+            // int pq = floor(n);
+            // float yz = n - pq ; 
+            // yz = int(yz * 100);
+            // n = pq + yz/100 *0.1*10;  
+            // perc_vector[it] = n;
+        }
+        std::ofstream outfile;
+        outfile.open("percentages.py", std::ios_base::app); // append instead of overwrite
+        string copy_this_string =i.first + add_me_string   ;
+        copy_this_string = copy_this_string + "= [" ;
+        for(int x=0;x<=10;x++){
+            copy_this_string =copy_this_string+  to_string(perc_vector[x])  ;
+            if(x!=10){
+                copy_this_string = copy_this_string +",";
+            }
+        }
+        copy_this_string = copy_this_string + "] \n" ;
+        outfile << copy_this_string; 
+        // copy vector to pyton file
         cout << endl << endl ; 
     }    
 }
