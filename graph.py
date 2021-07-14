@@ -35,8 +35,8 @@ x = np.arange(len(labels))  # the label locations
 width = 0.35  # the width of the bars
 
 fig, ax = plt.subplots()
-rects1 = ax.bar(x - width/2, percentages.EE2K18sem3, width, label='3sem2K18')
-rects2 = ax.bar(x + width/2, percentages.EE2K18sem6, width, label='6sem2K18')
+rects1 = ax.bar(x - width/2, percentages.CO2K18sem3, width, label='3sem2K18')
+rects2 = ax.bar(x + width/2, percentages.CO2K18sem6, width, label='6sem2K18')
 # rects3 = ax.bar(x + width/2, percentages.EE2K18sem6, width, label='6sem2K18')
 
 
