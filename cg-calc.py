@@ -1,5 +1,4 @@
 credits = input("Enter Credits String : ") 
-# credits  = "4 4 4 4 2 2"
 credits = credits.split(" ")
 grades = input("Enter Grades String: ")
 grades = grades.split(" ")
