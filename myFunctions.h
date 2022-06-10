@@ -163,12 +163,12 @@ void  betterStatsFunction(map<string, vector<float>> m1){
             //float perc = j.second/no_of_student_in_this_branch * 100  ;
             
         }  
-        cout << endl  << no_of_student_in_this_branch << " studssss " << endl ;
+        cout << endl  << no_of_student_in_this_branch << " students " << endl ;
         for(auto j:i.second){
             float x = j.second *0.1 * 10 ;
             float y = no_of_student_in_this_branch *0.1 * 10 ;
             float perc = x/y ;
-            cout << j.first << " : " << j.second << "/" << no_of_student_in_this_branch  << "       " << perc  * 100  << endl  ; 
+            cout << j.first << " : " << j.second << "/" << no_of_student_in_this_branch  << "       " << perc  * 100  << " %" << endl  ; 
             
         }
         cout << endl << endl ; 
